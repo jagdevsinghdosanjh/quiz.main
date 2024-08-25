@@ -16,6 +16,10 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
+    private static String method() {
+        return "login";
+    }
+
     @Autowired
     private UserRepository userRepository;
 
@@ -30,7 +34,7 @@ public class LoginController {
                 session.setAttribute("currentUser", user);
                 if (null == user.getRole()) {
                     // Handle unexpected role
-                    ModelAndView modelAndView = new ModelAndView("login");
+                    ModelAndView modelAndView = new ModelAndView(method());
                     modelAndView.addObject("error", "User role is not recognized.");
                     return modelAndView;
                 } else // Adjust role check to match stored role strings
@@ -43,14 +47,15 @@ public class LoginController {
                     }
                     default -> {
                         // Handle unexpected role
-                        ModelAndView modelAndView = new ModelAndView("login");
+                        ModelAndView modelAndView = new ModelAndView(method());
                         modelAndView.addObject("error", "User role is not recognized.");
                         return modelAndView;
                     }
+
                 }
             }
         }
-        ModelAndView modelAndView = new ModelAndView("login");
+        ModelAndView modelAndView = new ModelAndView(method());
         modelAndView.addObject("error", "Invalid username or password");
         return modelAndView; // Stay on the login page and show an error message
     }
