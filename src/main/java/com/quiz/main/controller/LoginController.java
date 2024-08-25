@@ -35,15 +35,18 @@ public class LoginController {
                     return modelAndView;
                 } else // Adjust role check to match stored role strings
                 switch (user.getRole()) {
-                    case "ROLE_ADMIN":
+                    case "ROLE_ADMIN" -> {
                         return new ModelAndView("redirect:/admin/home"); // Redirect to admin home page
-                    case "ROLE_USER":
+                    }
+                    case "ROLE_USER" -> {
                         return new ModelAndView("redirect:/user/home"); // Redirect to user home page
-                    default:
+                    }
+                    default -> {
                         // Handle unexpected role
                         ModelAndView modelAndView = new ModelAndView("login");
                         modelAndView.addObject("error", "User role is not recognized.");
                         return modelAndView;
+                    }
                 }
             }
         }
