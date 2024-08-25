@@ -1,9 +1,11 @@
 package com.quiz.main.model;
 
-import com.quiz.main.model.Quiz;
-import com.quiz.main.model.User;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class QuizResult {
