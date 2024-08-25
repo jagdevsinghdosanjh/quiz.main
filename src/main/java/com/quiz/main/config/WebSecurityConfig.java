@@ -6,14 +6,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 import lombok.NoArgsConstructor;
 
-import lombok.NoArgsConstructor;
-
 @NoArgsConstructor
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfiguration {
 
     @SuppressWarnings("removal")
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .rememberMe() // Enables remember-me functionality
