@@ -26,6 +26,7 @@ public class Quiz {
 
     @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Question> questions = new ArrayList<>();
+    @SuppressWarnings("deprecation")
     @NotNull(message = "Duration is required.")
     @Min(value = 1, message = "Duration must be at least 1 minute.")
     private Integer duration;
