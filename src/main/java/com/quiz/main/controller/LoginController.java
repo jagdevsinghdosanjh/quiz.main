@@ -28,16 +28,22 @@ public class LoginController {
             if (user.getPassword().equals(password)) {
                 // Assuming password is stored as plain text for demonstration; typically, you'd compare a hashed password.
                 session.setAttribute("currentUser", user);
-                // Adjust role check to match stored role strings
-                if ("ROLE_ADMIN".equals(user.getRole())) {
-                    return new ModelAndView("redirect:/admin/home"); // Redirect to admin home page
-                } else if ("ROLE_USER".equals(user.getRole())) {
-                    return new ModelAndView("redirect:/user/home"); // Redirect to user home page
-                } else {
+                if (null == user.getRole()) {
                     // Handle unexpected role
                     ModelAndView modelAndView = new ModelAndView("login");
                     modelAndView.addObject("error", "User role is not recognized.");
                     return modelAndView;
+                } else // Adjust role check to match stored role strings
+                switch (user.getRole()) {
+                    case "ROLE_ADMIN":
+                        return new ModelAndView("redirect:/admin/home"); // Redirect to admin home page
+                    case "ROLE_USER":
+                        return new ModelAndView("redirect:/user/home"); // Redirect to user home page
+                    default:
+                        // Handle unexpected role
+                        ModelAndView modelAndView = new ModelAndView("login");
+                        modelAndView.addObject("error", "User role is not recognized.");
+                        return modelAndView;
                 }
             }
         }

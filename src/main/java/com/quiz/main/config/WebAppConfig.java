@@ -19,7 +19,7 @@ public class WebAppConfig implements WebMvcConfigurer {
     private HttpSession session;
 
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors(@SuppressWarnings("null") InterceptorRegistry registry) {
         registry.addInterceptor(new HandlerInterceptor() {
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

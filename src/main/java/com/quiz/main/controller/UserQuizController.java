@@ -16,7 +16,6 @@ import com.quiz.main.model.Quiz;
 import com.quiz.main.model.QuizSubmission;
 import com.quiz.main.model.User;
 import com.quiz.main.service.QuizService;
-import com.quiz.main.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -26,10 +25,6 @@ public class UserQuizController {
 
     @Autowired
     private QuizService quizService;
-
-    // Assuming you have a UserService to get the currently authenticated user
-    @Autowired
-    private UserService userService;
 
     @GetMapping
     public String listQuizzes(Model model) {

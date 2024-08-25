@@ -15,7 +15,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode
 @Entity
 @Table(name = "quizzes")
 public class Quiz {
@@ -30,8 +32,12 @@ public class Quiz {
     @NotNull(message = "Duration is required.")
     @Min(value = 1, message = "Duration must be at least 1 minute.")
     private Integer duration;
+    public Quiz(Integer duration) {
+        this.duration = duration;
+    }
+
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<QuizResult> quizResults = new HashSet<>();
+    private final Set<QuizResult> quizResults = new HashSet<>();
     private String title;
 
     public Integer getDuration() {

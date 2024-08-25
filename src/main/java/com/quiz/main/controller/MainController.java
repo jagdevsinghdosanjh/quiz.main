@@ -2,25 +2,23 @@ package com.quiz.main.controller;
 
 import java.util.List;
 
-import com.quiz.main.model.Quiz;
-import com.quiz.main.model.User;
-import com.quiz.main.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
+import com.quiz.main.model.Quiz;
+import com.quiz.main.model.User;
+import com.quiz.main.service.QuizService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
 	
 
 	@Autowired
-    QuizService qService;
-	@Autowired
 	private QuizService quizService;
-	Boolean submitted = false;
 	
 
 	
