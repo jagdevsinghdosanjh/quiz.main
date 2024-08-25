@@ -1,15 +1,17 @@
 package com.quiz.main.controller;
 
-import com.quiz.main.model.User;
-import com.quiz.main.repository.UserRepository;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
-import java.util.Optional;
+import com.quiz.main.model.User;
+import com.quiz.main.repository.UserRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
