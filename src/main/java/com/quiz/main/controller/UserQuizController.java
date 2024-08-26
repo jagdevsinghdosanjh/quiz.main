@@ -1,23 +1,18 @@
 package com.quiz.main.controller;
 
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.quiz.main.model.Question;
 import com.quiz.main.model.Quiz;
 import com.quiz.main.model.QuizSubmission;
 import com.quiz.main.model.User;
 import com.quiz.main.service.QuizService;
+import com.quiz.main.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/quizzes")
@@ -25,6 +20,10 @@ public class UserQuizController {
 
     @Autowired
     private QuizService quizService;
+
+    // Assuming you have a UserService to get the currently authenticated user
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public String listQuizzes(Model model) {

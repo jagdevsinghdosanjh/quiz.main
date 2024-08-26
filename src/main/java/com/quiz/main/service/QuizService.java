@@ -1,12 +1,5 @@
 package com.quiz.main.service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.quiz.main.model.Question;
 import com.quiz.main.model.Quiz;
 import com.quiz.main.model.QuizResult;
@@ -14,8 +7,13 @@ import com.quiz.main.model.User;
 import com.quiz.main.repository.QuestionRepository;
 import com.quiz.main.repository.QuizRepository;
 import com.quiz.main.repository.QuizResultRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class QuizService {
